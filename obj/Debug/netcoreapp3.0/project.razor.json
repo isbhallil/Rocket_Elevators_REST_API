@@ -1,0 +1,16 @@
+{
+  "FilePath": "c:\\Users\\isbha\\Documents\\Rocket_REST_API\\Rocket_REST_API.csproj",
+  "Configuration": {
+    "ConfigurationName": "MVC-3.0",
+    "LanguageVersion": "3.0",
+    "Extensions": [
+      {
+        "ExtensionName": "MVC-3.0"
+      }
+    ]
+  },
+  "ProjectWorkspaceState": null,
+  "RootNamespace": "Rocket_REST_API",
+  "Documents": [],
+  "SerializationFormat": "0.2"
+}
