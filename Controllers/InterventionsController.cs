@@ -65,7 +65,10 @@ namespace Rocket_REST_API.Controllers
             intervention.InterventionBeginsAt = DateTime.Now.ToString();
             intervention.Status = "InProgress";
 
-            if (intervention.Status != "Completed") _context.Interventions.Update(intervention);
+            if (intervention.Status != "Completed"){
+                _context.Interventions.Update(intervention);
+                _context.SaveChanges();
+            }
 
 
             return intervention;
@@ -80,7 +83,11 @@ namespace Rocket_REST_API.Controllers
             intervention.InterventionFinishedAt = DateTime.Now.ToString();
             intervention.Status = "Completed";
 
-            if (intervention.Status == "InProgress") _context.Interventions.Update(intervention);
+            if (intervention.Status == "InProgress")
+            {
+                _context.Interventions.Update(intervention);
+                _context.SaveChanges();
+            }
 
             return intervention;
         }
