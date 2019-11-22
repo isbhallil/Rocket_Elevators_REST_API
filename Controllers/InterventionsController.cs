@@ -137,7 +137,7 @@ namespace Rocket_REST_API.Controllers
         }
 
         // GET: api/Interventions/element=battery&elementId=67&employeeId=51
-        [HttpPost("intervention/element={element}&elementId={elementId}&employeeId={employeeId}")]
+        [HttpPost("element={element}&elementId={elementId}&employeeId={employeeId}")]
         public async Task<ActionResult<Interventions>> CreateIntervention(string element, long elementId, long employeeId)
         {
             Interventions intervention = new Interventions();
