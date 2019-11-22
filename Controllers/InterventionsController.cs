@@ -136,6 +136,61 @@ namespace Rocket_REST_API.Controllers
             return CreatedAtAction("GetInterventions", new { id = interventions.Id }, interventions);
         }
 
+        // GET: api/Interventions/element=battery&elementId=67&employeeId=51
+        [HttpPost("intervention/element={element}&elementId={elementId}&employeeId={employeeId}")]
+        public async Task<ActionResult<Interventions>> CreateIntervention(string element, long elementId, long employeeId)
+        {
+            Interventions intervention = new Interventions();
+
+            if (element == "elevator")
+            {
+                Elevators elevator = await _context.Elevators.FindAsync(elementId);
+                Columns column = await _context.Columns.FindAsync(elevator.ColumnId);
+                Batteries battery = await _context.Batteries.FindAsync(column.BatteryId);
+                Buildings building = await _context.Buildings.FindAsync(battery.BuildingId);
+                Customers customer = await _context.Customers.FindAsync(building.CustomerId);
+
+                intervention.CustomerId = customer.Id;
+                intervention.BuildingId = building.Id;
+                intervention.ElevatorId = elevator.Id;
+                intervention.EmployeeId = employeeId;
+                intervention.AuthorId = 51;
+                intervention.Status = "Pending";
+            }
+            else if (element == "column")
+            {
+                Columns column = await _context.Columns.FindAsync(elementId);
+                Batteries battery = await _context.Batteries.FindAsync(column.BatteryId);
+                Buildings building = await _context.Buildings.FindAsync(battery.BuildingId);
+                Customers customer = await _context.Customers.FindAsync(building.CustomerId);
+
+                intervention.CustomerId = customer.Id;
+                intervention.BuildingId = building.Id;
+                intervention.ColumnId = elementId;
+                intervention.EmployeeId = employeeId;
+                intervention.AuthorId = 51;
+                intervention.Status = "Pending";
+            }
+            else if (element == "battery")
+            {
+                Batteries battery = await _context.Batteries.FindAsync(elementId);
+                Buildings building = await _context.Buildings.FindAsync(battery.BuildingId);
+                Customers customer = await _context.Customers.FindAsync(building.CustomerId);
+
+                intervention.CustomerId = customer.Id;
+                intervention.BuildingId = building.Id;
+                intervention.BatteryId = elementId;
+                intervention.EmployeeId = employeeId;
+                intervention.AuthorId = 51;
+                intervention.Status = "Pending";
+            };
+
+            _context.Interventions.Add(intervention);
+            await _context.SaveChangesAsync();
+
+            return intervention;
+        }
+
         // DELETE: api/Interventions/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Interventions>> DeleteInterventions(long id)

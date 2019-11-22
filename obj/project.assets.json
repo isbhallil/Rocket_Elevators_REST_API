@@ -9079,14 +9079,14 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\isbha\\Documents\\RestApi\\Rocket_REST_API.csproj",
+      "projectUniqueName": "C:\\Users\\isbha\\Documents\\Rocket_REST_API\\Rocket_REST_API.csproj",
       "projectName": "Rocket_REST_API",
-      "projectPath": "C:\\Users\\isbha\\Documents\\RestApi\\Rocket_REST_API.csproj",
+      "projectPath": "C:\\Users\\isbha\\Documents\\Rocket_REST_API\\Rocket_REST_API.csproj",
       "packagesPath": "C:\\Users\\isbha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\isbha\\Documents\\RestApi\\obj\\",
+      "outputPath": "C:\\Users\\isbha\\Documents\\Rocket_REST_API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\isbha\\Documents\\RestApi\\NuGet.Config",
+        "C:\\Users\\isbha\\Documents\\Rocket_REST_API\\NuGet.Config",
         "C:\\Users\\isbha\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
