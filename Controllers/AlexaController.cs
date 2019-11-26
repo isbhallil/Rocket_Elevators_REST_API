@@ -36,5 +36,46 @@ namespace Rocket_REST_API.Controllers
                 leadsInContactRequests = await _context.Leads.Where(lead => lead.CustomerId == null).CountAsync()
             };
         }
+
+        [HttpGet("info/entity={entity}&entityID={entityID}")]
+        public async Task<ActionResult<Object>> GetInfo(string entity, long entityID)
+        {
+            Object entitySelected = null;
+
+            if (entity == "elevator")
+            {
+                entitySelected = await _context.Elevators.FindAsync(entityID);
+            }
+            else if (entity == "column")
+            {
+                entitySelected = await _context.Columns.FindAsync(entityID);
+            }
+            else if (entity == "battery")
+            {
+                entitySelected = await _context.Batteries.FindAsync(entityID);
+            }
+            else if (entity == "intervention")
+            {
+                entitySelected = await _context.Interventions.FindAsync(entityID);
+            }
+            else if (entity == "employee")
+            {
+                entitySelected = await _context.Employees.FindAsync(entityID);
+            }
+            else if (entity == "customer")
+            {
+                entitySelected = await _context.Customers.FindAsync(entityID);
+            }
+            else if (entity == "building")
+            {
+                entitySelected = await _context.Buildings.FindAsync(entityID);
+            }
+            else if (entity == "address")
+            {
+                entitySelected = await _context.Addresses.FindAsync(entityID);
+            };
+
+            return entitySelected;
+        }
     }
 }

@@ -1,4 +1,8 @@
 .vs/
-bin
 obj
 packages
+/bin
+/.vscode
+/publish
+/obj
+/appsettings.json
