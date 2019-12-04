@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[7.2.2, )"
             },
+            "Microsoft.CognitiveServices.Speech": {
+              "target": "Package",
+              "version": "[1.8.0, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -83,6 +87,10 @@
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
               "version": "[3.0.0-rc2.final, )"
+            },
+            "System.IO": {
+              "target": "Package",
+              "version": "[4.3.0, )"
             }
           },
           "imports": [
