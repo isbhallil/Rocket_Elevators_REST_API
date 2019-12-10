@@ -22,8 +22,13 @@ namespace Rocket_REST_API.Controllers
 
         // GET: api/Employees
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Employees>>> GetEmployees()
+        public async Task<ActionResult<IEnumerable<Employees>>> GetEmployees(string email)
         {
+            if (email != null)
+            {
+                return await _context.Employees.Where(e => e.Email == email).ToListAsync();
+            }
+
             return await _context.Employees.ToListAsync();
         }
 
