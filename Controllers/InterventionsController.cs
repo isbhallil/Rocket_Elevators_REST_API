@@ -22,8 +22,25 @@ namespace Rocket_REST_API.Controllers
 
         // GET: api/Interventions
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Interventions>>> GetInterventions()
+        public async Task<ActionResult<IEnumerable<Interventions>>> GetInterventions(string elementType)
         {
+            if (elementType == "elevator")
+            {
+                return await _context.Interventions.Where(i => i.ElevatorId != null).ToListAsync();
+            }
+            else if (elementType == "column")
+            {
+                return await _context.Interventions.Where(i => i.ColumnId != null).ToListAsync();
+            }
+            else if (elementType == "column")
+            {
+                return await _context.Interventions.Where(i => i.ColumnId != null).ToListAsync();
+            }
+            else if (elementType == "battery")
+            {
+                return await _context.Interventions.Where(i => i.BatteryId != null).ToListAsync();
+            };
+
             return await _context.Interventions.ToListAsync();
         }
 
@@ -56,6 +73,30 @@ namespace Rocket_REST_API.Controllers
             return interventions;
         }
 
+        // // GET: api/Interventions/{elementType}
+        // [HttpGet("getByType/{elementType}")]
+        // public async Task<List<Interventions>> GetInterventionsByType(String elementType)
+        // {
+        //     if (elementType == null) return null;
+
+        //     if (elementType == "elevator")
+        //     {
+        //         return await _context.Interventions.Where(i => i.ElevatorId != null).ToListAsync();
+        //     }
+        //     else if (elementType == "column")
+        //     {
+        //         return await _context.Interventions.Where(i => i.ColumnId != null).ToListAsync();
+        //     }
+        //     else if (elementType == "column")
+        //     {
+        //         return await _context.Interventions.Where(i => i.ColumnId != null).ToListAsync();
+        //     }
+        //     else
+        //     {
+        //         return await _context.Interventions.Where(i => i.BatteryId != null).ToListAsync();
+        //     };
+        // }
+
         [HttpPut("{id}/inProgress")]
         public async Task<ActionResult<Interventions>> setInProgress(long id)
         {
@@ -65,7 +106,8 @@ namespace Rocket_REST_API.Controllers
             intervention.InterventionBeginsAt = DateTime.Now.ToString();
             intervention.Status = "InProgress";
 
-            if (intervention.Status != "Completed"){
+            if (intervention.Status != "Completed")
+            {
                 _context.Interventions.Update(intervention);
                 _context.SaveChanges();
             }
@@ -207,8 +249,10 @@ namespace Rocket_REST_API.Controllers
             return interventions;
         }
 
-        public Interventions updateInterventionStatus(Interventions intervention, string status){
-            if (status == "Completed"){
+        public Interventions updateInterventionStatus(Interventions intervention, string status)
+        {
+            if (status == "Completed")
+            {
                 intervention.InterventionFinishedAt = DateTime.Now.ToString();
                 intervention.Status = "Completed";
                 if (intervention.Status == "InProgress") _context.Interventions.Update(intervention);

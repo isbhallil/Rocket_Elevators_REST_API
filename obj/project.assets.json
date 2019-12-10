@@ -9299,27 +9299,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\isbha\\.nuget\\packages\\": {}
+    "/home/isbhallil/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\isbha\\Documents\\Rocket_REST_API\\Rocket_REST_API.csproj",
+      "projectUniqueName": "/mnt/c/Users/isbha/Documents/Rocket_REST_API/Rocket_REST_API.csproj",
       "projectName": "Rocket_REST_API",
-      "projectPath": "C:\\Users\\isbha\\Documents\\Rocket_REST_API\\Rocket_REST_API.csproj",
-      "packagesPath": "C:\\Users\\isbha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\isbha\\Documents\\Rocket_REST_API\\obj\\",
+      "projectPath": "/mnt/c/Users/isbha/Documents/Rocket_REST_API/Rocket_REST_API.csproj",
+      "packagesPath": "/home/isbhallil/.nuget/packages/",
+      "outputPath": "/mnt/c/Users/isbha/Documents/Rocket_REST_API/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\isbha\\Documents\\Rocket_REST_API\\NuGet.Config",
-        "C:\\Users\\isbha\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/mnt/c/Users/isbha/Documents/Rocket_REST_API/nuget.config",
+        "/home/isbhallil/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {},
         "https://pkgs.dev.azure.com/pomelo-efcore/Pomelo.EntityFrameworkCore.MySql/_packaging/pomelo-efcore-public/nuget/v3/index.json": {}
       },
@@ -9408,7 +9406,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
       }
     }
   }
