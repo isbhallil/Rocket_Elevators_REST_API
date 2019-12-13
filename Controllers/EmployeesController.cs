@@ -26,6 +26,7 @@ namespace Rocket_REST_API.Controllers
         {
             if (email != null)
             {
+                Console.WriteLine("===================================================");
                 return await _context.Employees.Where(e => e.Email == email).ToListAsync();
             }
 

@@ -22,8 +22,23 @@ namespace Rocket_REST_API.Controllers
 
         // GET: api/Elevators
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Elevators>>> GetElevators()
+        public async Task<ActionResult<IEnumerable<Elevators>>> GetElevators(string status, int page, int perPage)
         {
+            if (status != null)
+            {
+                if (page >= 0 && perPage > 0)
+                {
+                    return await _context.Elevators.Where(e => e.Status == status).Skip(page * perPage).Take(perPage).ToListAsync();
+                };
+                return await _context.Elevators.Where(e => e.Status == status).ToListAsync();
+            }
+
+            if (page >= 0 && perPage > 0)
+            {
+                Console.WriteLine("test =======================================");
+                return await _context.Elevators.Skip(page * perPage).Take(perPage).ToListAsync();
+            };
+
             return await _context.Elevators.ToListAsync();
         }
 

@@ -4787,7 +4787,6 @@
       "path": "pomelo.entityframeworkcore.mysql/3.0.0-rc2.final",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "lib/netstandard2.1/Pomelo.EntityFrameworkCore.MySql.dll",
         "pomelo.entityframeworkcore.mysql.3.0.0-rc2.final.nupkg.sha512",
         "pomelo.entityframeworkcore.mysql.nuspec"
@@ -9299,25 +9298,27 @@
     ]
   },
   "packageFolders": {
-    "/home/isbhallil/.nuget/packages/": {}
+    "C:\\Users\\isbha\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/mnt/c/Users/isbha/Documents/Rocket_REST_API/Rocket_REST_API.csproj",
+      "projectUniqueName": "C:\\Users\\isbha\\Documents\\Rocket_REST_API\\Rocket_REST_API.csproj",
       "projectName": "Rocket_REST_API",
-      "projectPath": "/mnt/c/Users/isbha/Documents/Rocket_REST_API/Rocket_REST_API.csproj",
-      "packagesPath": "/home/isbhallil/.nuget/packages/",
-      "outputPath": "/mnt/c/Users/isbha/Documents/Rocket_REST_API/obj/",
+      "projectPath": "C:\\Users\\isbha\\Documents\\Rocket_REST_API\\Rocket_REST_API.csproj",
+      "packagesPath": "C:\\Users\\isbha\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\isbha\\Documents\\Rocket_REST_API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/mnt/c/Users/isbha/Documents/Rocket_REST_API/nuget.config",
-        "/home/isbhallil/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\isbha\\Documents\\Rocket_REST_API\\NuGet.Config",
+        "C:\\Users\\isbha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {},
         "https://pkgs.dev.azure.com/pomelo-efcore/Pomelo.EntityFrameworkCore.MySql/_packaging/pomelo-efcore-public/nuget/v3/index.json": {}
       },
@@ -9406,7 +9407,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

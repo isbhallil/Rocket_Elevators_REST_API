@@ -22,8 +22,22 @@ namespace Rocket_REST_API.Controllers
 
         // GET: api/Columns
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Columns>>> GetColumns()
+        public async Task<ActionResult<IEnumerable<Columns>>> GetColumns(string status, int page, int perPage)
         {
+            if (status != null)
+            {
+                if (page >= 0 && perPage > 0)
+                {
+                    return await _context.Columns.Where(e => e.Status == status).Skip(page * perPage).Take(perPage).ToListAsync();
+                };
+                return await _context.Columns.Where(c => c.Status == status).ToListAsync();
+            }
+
+            if (page >= 0 && perPage > 0)
+            {
+                return await _context.Columns.Skip(page * perPage).Take(perPage).ToListAsync();
+            };
+
             return await _context.Columns.ToListAsync();
         }
 

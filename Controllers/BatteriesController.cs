@@ -22,8 +22,22 @@ namespace Rocket_REST_API.Controllers
 
         // GET: api/Batteries
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Batteries>>> GetBatteries()
+        public async Task<ActionResult<IEnumerable<Batteries>>> GetBatteries(string status, int page, int perPage)
         {
+            if (status != null)
+            {
+                if (page >= 0 && perPage > 0)
+                {
+                    return await _context.Batteries.Where(e => e.Status == status).Skip(page * perPage).Take(perPage).ToListAsync();
+                };
+                return await _context.Batteries.Where(b => b.Status == status).ToListAsync();
+            }
+
+            if (page >= 0 && perPage > 0)
+            {
+                return await _context.Batteries.Skip(page * perPage).Take(perPage).ToListAsync();
+            };
+
             return await _context.Batteries.ToListAsync();
         }
 
