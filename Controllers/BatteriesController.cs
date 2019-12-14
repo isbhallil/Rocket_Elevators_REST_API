@@ -59,32 +59,21 @@ namespace Rocket_REST_API.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutBatteries(long id, Batteries batteries)
+        public async Task<ActionResult<Batteries>> PutBatteries(long id, string status)
         {
-            if (id != batteries.Id)
+            if (status != null)
             {
-                return BadRequest();
-            }
+                Batteries battery = await _context.Batteries.FindAsync(id);
+                if (battery == null) return NotFound();
 
-            _context.Entry(batteries).State = EntityState.Modified;
+                battery.Status = status;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!BatteriesExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+                _context.Batteries.Update(battery);
+                _context.SaveChanges();
 
-            return NoContent();
+            };
+
+            return await _context.Batteries.FindAsync(id);
         }
 
         // POST: api/Batteries

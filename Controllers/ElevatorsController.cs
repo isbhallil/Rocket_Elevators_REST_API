@@ -60,32 +60,24 @@ namespace Rocket_REST_API.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutElevators(long id, Elevators elevators)
+        public async Task<ActionResult<Elevators>> PutElevators(long id, string status)
         {
-            if (id != elevators.Id)
-            {
-                return BadRequest();
-            }
+            Console.WriteLine("========================================");
+            Console.WriteLine(status);
 
-            _context.Entry(elevators).State = EntityState.Modified;
-
-            try
+            if (status != null)
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ElevatorsExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+                Elevators elevator = await _context.Elevators.FindAsync(id);
+                if (elevator == null) return NotFound();
 
-            return NoContent();
+                elevator.Status = status;
+
+                _context.Elevators.Update(elevator);
+                _context.SaveChanges();
+
+            };
+
+            return await _context.Elevators.FindAsync(id);
         }
 
         // POST: api/Elevators

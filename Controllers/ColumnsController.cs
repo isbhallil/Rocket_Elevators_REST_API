@@ -59,32 +59,20 @@ namespace Rocket_REST_API.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutColumns(long id, Columns columns)
+        public async Task<ActionResult<Columns>> PutColumns(long id, string status)
         {
-            if (id != columns.Id)
+            if (status != null)
             {
-                return BadRequest();
-            }
+                Columns column = await _context.Columns.FindAsync(id);
+                if (column == null) return NotFound();
 
-            _context.Entry(columns).State = EntityState.Modified;
+                column.Status = status;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ColumnsExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+                _context.Columns.Update(column);
+                _context.SaveChanges();
 
-            return NoContent();
+            };
+            return await _context.Columns.FindAsync(id);
         }
 
         // POST: api/Columns
